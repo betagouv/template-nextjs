@@ -1,16 +1,16 @@
-name: Storybook
+name: Deploy demo
 
 on:
   push:
-    branches: [main]
+    branches: [main, next]
 
 concurrency:
   cancel-in-progress: true
-  group: storybook-${{ github.ref }}
+  group: deploy-${{ github.ref }}
 
 jobs:
-  storybook:
-    name: Deployment storybook on gh-pages
+  build:
+    name: Deployment demo on gh-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -26,9 +26,14 @@ jobs:
         run: |
           yarn --immutable
 
-      - name: Deploy
+      - name: Build
         run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          yarn storybook:deploy:action
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          yarn build
+          touch out/.nojekyll
+
+      # deploy build to gh-pages
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.9
+        with:
+          branch: gh-pages
+          folder: out

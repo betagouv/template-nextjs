@@ -5,14 +5,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { createEmotionSsrAdvancedApproach } from "tss-react/next";
+import { useStyles } from "tss-react/dsfr";
 import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next-pagesdir";
 import { Footer } from "@codegouvfr/react-dsfr/Footer";
 import { fr } from "@codegouvfr/react-dsfr";
 import { Header } from "@codegouvfr/react-dsfr/Header";
 import { headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
-import { init } from "@socialgouv/matomo-next";
+import { SkipLinks } from "@codegouvfr/react-dsfr/SkipLinks";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
-import { useStyles } from "tss-react/dsfr";
+
+import { init } from "@socialgouv/matomo-next";
 
 declare module "@codegouvfr/react-dsfr/next-pagesdir" {
   interface RegisterLink {
@@ -50,12 +52,14 @@ const { withDsfr, dsfrDocumentApi } = createNextDsfrIntegrationApi({
   ],
 });
 
-const { augmentDocumentWithEmotionCache, withAppEmotionCache } =
+export { dsfrDocumentApi };
+
+const { withAppEmotionCache, augmentDocumentWithEmotionCache } =
   createEmotionSsrAdvancedApproach({
     key: "css",
   });
 
-export { dsfrDocumentApi, augmentDocumentWithEmotionCache };
+export { augmentDocumentWithEmotionCache };
 
 const brandTop = (
   <>
@@ -68,7 +72,7 @@ const brandTop = (
 const homeLinkPops = {
   href: "/",
   title:
-    "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)",
+    "Accueil - Nom de l’entité (ministère, secrétariat d'état, gouvernement)",
 };
 
 const bottomLinks = [
@@ -85,9 +89,21 @@ const bottomLinks = [
     },
   },
   {
+    text: "Budget",
+    linkProps: {
+      href: "/budget",
+    },
+  },
+  {
     text: "Politique de confidentialité",
     linkProps: {
       href: "/politique-confidentialite",
+    },
+  },
+  {
+    text: "SOS",
+    linkProps: {
+      href: "/sos",
     },
   },
   {
@@ -112,7 +128,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <MuiDsfrThemeProvider>
       <Head>
-        <title>Template | Fabrique numérique des ministères sociaux</title>
+        <title>Template | beta.gouv.fr</title>
         {contentSecurityPolicy && (
           <meta
             httpEquiv="Content-Security-Policy"
@@ -120,15 +136,28 @@ const Layout = ({ children }: { children: ReactNode }) => {
           ></meta>
         )}
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Template de la fabrique des ministères sociaux."
-        />
+        <meta name="description" content="Template Next.js beta.gouv.fr" />
       </Head>
+      <SkipLinks
+        links={[
+          {
+            anchor: "#fr-header-main-navigation",
+            label: "Menu",
+          },
+          {
+            anchor: "#content",
+            label: "Contenu",
+          },
+          {
+            anchor: "#fr-footer",
+            label: "Pied de page",
+          },
+        ]}
+      />
       <Header
         brandTop={brandTop}
-        serviceTitle="La fabrique numérique des ministères sociaux"
-        serviceTagline="L'incubateur des services numériques du pôle ministériel"
+        serviceTitle="Nom du service numérique"
+        serviceTagline="Description du service numérique"
         homeLinkProps={homeLinkPops}
         navigation={[
           {
@@ -152,17 +181,19 @@ const Layout = ({ children }: { children: ReactNode }) => {
             },
             isActive: router.asPath === "/mui",
           },
+          {
+            text: "Article",
+            linkProps: {
+              href: "/article",
+            },
+            isActive: router.asPath === "/article",
+          },
         ]}
         quickAccessItems={[headerFooterDisplayItem]}
       />
       <div
-        className={css({
-          margin: "auto",
-          maxWidth: 1000,
-          ...fr.spacing("padding", {
-            topBottom: "10v",
-          }),
-        })}
+        className={fr.cx("fr-container", "fr-container--fluid", "fr-p-5w")}
+        id="content"
       >
         {children}
       </div>
@@ -201,6 +232,7 @@ function App({ Component, pageProps }: AppProps) {
       }}
     >
       <Layout>
+        {/*@ts-ignore*/}
         <Component {...pageProps} />
       </Layout>
     </div>
