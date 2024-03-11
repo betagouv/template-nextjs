@@ -3,13 +3,14 @@ name: Release
 on:
   workflow_dispatch:
   push:
-    branches: [master, main, alpha, beta, next]
+    branches: [main, alpha, beta, next]
 
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: socialgouv/workflows/actions/semantic-release@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
