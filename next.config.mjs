@@ -16,6 +16,7 @@ const version = pkg.version;
 
 /** @type {import('next').NextConfig} */
 const moduleExports = {
+  basePath: "/template",
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   reactStrictMode: true,
   swcMinify: true,
