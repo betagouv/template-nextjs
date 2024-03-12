@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { createEmotionSsrAdvancedApproach } from "tss-react/next";
-import { useStyles } from "tss-react/dsfr";
 import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next-pagesdir";
 import { Footer } from "@codegouvfr/react-dsfr/Footer";
 import { fr } from "@codegouvfr/react-dsfr";
@@ -121,7 +120,6 @@ const bottomLinks = [
 ];
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  const { css } = useStyles();
   const router = useRouter();
 
   const contentSecurityPolicy = process.env.CONTENT_SECURITY_POLICY;
