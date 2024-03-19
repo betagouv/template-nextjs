@@ -15,6 +15,8 @@ import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 
 import { init } from "@socialgouv/matomo-next";
 
+import pkg from "../../package.json";
+
 declare module "@codegouvfr/react-dsfr/next-pagesdir" {
   interface RegisterLink {
     Link: typeof Link;
@@ -205,6 +207,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
     suivantes : Le site officiel d’information administrative pour les entreprises.
                 `}
         homeLinkProps={homeLinkPops}
+        license={`Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous licence ${pkg.license}`}
         accessibilityLinkProps={{ href: "/accessibilite" }}
         termsLinkProps={{ href: "/mentions-legales" }}
         bottomItems={[...bottomLinks, headerFooterDisplayItem]}
@@ -215,7 +218,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    console.log("init");
     init({
       url: process.env.NEXT_PUBLIC_MATOMO_URL ?? "",
       siteId: process.env.NEXT_PUBLIC_MATOMO_SITE_ID ?? "",
