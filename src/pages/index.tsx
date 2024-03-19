@@ -2,6 +2,7 @@ import * as React from "react";
 import Head from "next/head";
 import { NextPage } from "next";
 import Stack from "@mui/material/Stack";
+import Link from "next/link";
 
 import { push as matomoPush } from "@socialgouv/matomo-next";
 import { Accordion } from "@codegouvfr/react-dsfr/Accordion";
@@ -60,7 +61,6 @@ const Home: NextPage = () => {
             </a>
             .<br />
             <br />
-            Le template est livré 100% accessible.
           </Accordion>
           <Accordion label="📊 Matomo Analytics">
             Intègre le tracker matomo pour analyser l'usage du service.
@@ -84,9 +84,26 @@ const Home: NextPage = () => {
           </Accordion>
           <Accordion label="✅ Standards beta">
             <ul>
-              <li>Page de statistiques pour suivres les KPIs</li>
-              <li>Page de budget pour exposer son budget</li>
-              <li>Page SOS pour venir en aide aux usager(e)s</li>
+              <li>Site web accessible</li>
+              <li>
+                <Link href="/stats">Page de statistiques</Link> avec{" "}
+                <a
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://github.com/GouvernementFR/dsfr-chart"
+                >
+                  dsfr-chart
+                </a>{" "}
+                pour suivre les KPIs
+              </li>
+              <li>
+                <Link href="/budget">Page de budget</Link> pour publier son
+                budget
+              </li>
+              <li>
+                <Link href="/sos">Page SOS</Link> pour venir en aide aux
+                usager(e)s
+              </li>
             </ul>
           </Accordion>
           <Accordion label="🔐 Sécurité">
@@ -151,7 +168,7 @@ const Home: NextPage = () => {
         <Button
           title="Trigger matomo event"
           onClick={() => {
-            matomoPush(["click", "button", "homepage"]);
+            matomoPush(["trackEvent", "click", "home"]);
           }}
         >
           Trigger matomo event

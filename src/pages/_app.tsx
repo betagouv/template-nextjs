@@ -215,6 +215,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    console.log("init");
     init({
       url: process.env.NEXT_PUBLIC_MATOMO_URL ?? "",
       siteId: process.env.NEXT_PUBLIC_MATOMO_SITE_ID ?? "",

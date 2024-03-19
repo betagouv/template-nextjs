@@ -9,9 +9,9 @@ export const fetchMatomoData = async (): Promise<MatomoResult> => {
     `${process.env.NEXT_PUBLIC_MATOMO_URL}/?module=API&method=VisitsSummary.getVisits&idSite=${process.env.NEXT_PUBLIC_MATOMO_SITE_ID}&format=JSON&period=year&date=today`,
     `${process.env.NEXT_PUBLIC_MATOMO_URL}/?module=API&method=Actions.get&idSite=${process.env.NEXT_PUBLIC_MATOMO_SITE_ID}&format=JSON&period=year&date=today`,
   ];
-  const promises = MATOMO_URL.map(url =>
+  const promises = MATOMO_URL.map((url) =>
     fetch(url)
-      .then(data => data.json())
+      .then((data) => data.json())
       .catch(() => {
         return null;
       })

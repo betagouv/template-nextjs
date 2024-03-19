@@ -6,8 +6,8 @@
     "node": ">=18 || >=20"
   },
   "scripts": {
-    "predev": "only-include-used-icons",
-    "prebuild": "node -r @swc-node/register scripts/prebuild.ts && yarn only-include-used-icons",
+    "predev": "only-include-used-icons && cp -a node_modules/@codegouvfr/dsfr-chart ./public/",
+    "prebuild": "node -r @swc-node/register scripts/prebuild.ts && yarn only-include-used-icons && cp -a node_modules/@codegouvfr/dsfr-chart ./public/",
     "only-include-used-icons": "node node_modules/@codegouvfr/react-dsfr/bin/only-include-used-icons.js",
     "dev": "next dev",
     "build": "next build",
@@ -36,6 +36,7 @@
     "@emotion/react": "^11.11.4",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@gouvfr/dsfr-chart": "^1.0.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@mui/icons-material": "^5.15.12",
