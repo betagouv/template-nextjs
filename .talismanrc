@@ -25,6 +25,12 @@ fileignoreconfig:
   checksum: 7c55475ff28dbfa46c9c5715918add6a0202eafddca3cf9d35ebcdd443d76ffd
 - filename: pages/mui.tsx
   checksum: 65dd6ab0469f43924ffc92d26055de14a77b1ef873e0efe69a014b582c38b694
+- filename: public/Charts/dsfr-chart.common.js
+  checksum: 536b469f3c5817a3bf82125c23f419bee574163ea533856564fa79d8ab0efd10
+- filename: public/Charts/dsfr-chart.umd.js
+  checksum: 87f4e89d8aa78e209f82ee5c836f91c9201e8cd7135a01534cd7a0505841b11b
+- filename: public/Charts/dsfr-chart.umd.min.js
+  checksum: ed5bbeff85ea41a66790d314c07feacf8a6fcf479b70dbf10afca3e3de41b43c
 - filename: src/pages/404.tsx
   checksum: 96dab70b40d454f6d746ebd1c300f491ca82744cf52f3c0a3e05a039513cc4c1
 - filename: src/pages/500.tsx

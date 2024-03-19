@@ -26,13 +26,10 @@ const Stats: NextPage = () => {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH;
   return (
     <>
-      <Script src={`${basePath}/dsfr-chart/Charts/dsfr-chart.umd.js`} />
+      <Script src={`${basePath}/Charts/dsfr-chart.umd.js`} />
       <Head>
         <title>Template | Statistiques d&apos;utilisation</title>
-        <link
-          rel="stylesheet"
-          href={`${basePath}/dsfr-chart/Charts/dsfr-chart.css`}
-        />
+        <link rel="stylesheet" href={`${basePath}/Charts/dsfr-chart.css`} />
       </Head>
       <div className="fr-container fr-my-10w">
         <h1>Usage web</h1>

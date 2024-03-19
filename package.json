@@ -7,8 +7,8 @@
     "node": ">=18 || >=20"
   },
   "scripts": {
-    "predev": "only-include-used-icons && cp -a node_modules/@codegouvfr/dsfr-chart ./public/",
-    "prebuild": "node -r @swc-node/register scripts/prebuild.ts && yarn only-include-used-icons && cp -a node_modules/@codegouvfr/dsfr-chart ./public/",
+    "predev": "only-include-used-icons && cp -a node_modules/@gouvfr/dsfr-chart/Charts ./public/",
+    "prebuild": "node -r @swc-node/register scripts/prebuild.ts && yarn only-include-used-icons && cp -a node_modules/@gouvfr/dsfr-chart/Charts ./public/",
     "only-include-used-icons": "node node_modules/@codegouvfr/react-dsfr/bin/only-include-used-icons.js",
     "dev": "next dev",
     "build": "next build",
