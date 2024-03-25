@@ -28,13 +28,13 @@ const Home: NextPage = () => {
           recommandées chez betagouv et peut vous faire <b>gagner du temps</b>.
           <br />
           <br />
-          Il permet de déployer rapidement une application web à l'état de
-          l'art, qui respecte nos standards de{" "}
+          Il permet de déployer rapidement une application web à l&apos;état de
+          l&apos;art, qui respecte nos standards de{" "}
           <b>conformité, accessibilité et sécurité</b>.
           <br />
           <br />
           Vous pouvez vous en servir comme base de départ ou comme référence
-          d'implémentation.{" "}
+          d&apos;implémentation.{" "}
           <b>
             <a
               href="https://github.com/betagouv/template"
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
             <br />
           </Accordion>
           <Accordion label="📊 Matomo Analytics" titleAs="h2">
-            Intègre le tracker matomo pour analyser l'usage du service.
+            Intègre le tracker matomo pour analyser l&apos;usage du service.
             <br />
             <br />
             Le lien de désinscription réglementaire est intégré dans la
@@ -78,11 +78,11 @@ const Home: NextPage = () => {
             <ul>
               <li>
                 <Link href="/accessibilite">
-                  Déclaration d'accessibilité numérique
+                  Déclaration d&apos;accessibilité numérique
                 </Link>
               </li>
               <li>
-                <Link href="/cgu">Conditions d'utilisation</Link>
+                <Link href="/cgu">Conditions d&apos;utilisation</Link>
               </li>
               <li>
                 <Link href="/mentions-legales">Mentions légales</Link>
@@ -170,7 +170,7 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <h2 className={fr.cx("fr-mt-15w")}>Exemples d'intégrations</h2>
+      <h2 className={fr.cx("fr-mt-15w")}>Exemples d&apos;intégrations</h2>
       <Stack spacing={2} sx={{ mt: 2 }} direction="row">
         <Button
           title="Trigger sentry event"
