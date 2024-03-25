@@ -69,7 +69,6 @@ const Stats: NextPage = () => {
           x={JSON.stringify([1, 2, 3])}
           y={JSON.stringify([10, 20, 30])}
         ></PieChart>
-        ;
         <br />
         <br />
       </div>

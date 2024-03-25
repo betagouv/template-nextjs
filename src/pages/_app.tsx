@@ -102,9 +102,9 @@ const bottomLinks = [
     },
   },
   {
-    text: "SOS",
+    text: "Aide",
     linkProps: {
-      href: "/sos",
+      href: "/aide",
     },
   },
   {

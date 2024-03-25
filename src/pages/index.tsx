@@ -46,7 +46,7 @@ const Home: NextPage = () => {
           </b>
           <br />
           <br />
-          <Accordion label="🇫🇷 Système de design de l'état (DSFR)">
+          <Accordion label="🇫🇷 Système de design de l'état (DSFR)" titleAs="h2">
             Intègre la dernière version du kit{" "}
             <a
               href="https://github.com/codegouvfr/react-dsfr"
@@ -62,18 +62,18 @@ const Home: NextPage = () => {
             .<br />
             <br />
           </Accordion>
-          <Accordion label="📊 Matomo Analytics">
+          <Accordion label="📊 Matomo Analytics" titleAs="h2">
             Intègre le tracker matomo pour analyser l'usage du service.
             <br />
             <br />
             Le lien de désinscription réglementaire est intégré dans la
             politique de confidentialité.
           </Accordion>
-          <Accordion label="🚨 Alertes sentry">
+          <Accordion label="🚨 Alertes sentry" titleAs="h2">
             Intègre une sonde sentry pour être alerté en temps réel des erreurs
             applicatives et monitorer les performances de votre service.
           </Accordion>
-          <Accordion label="⚖️ Conformité juridique">
+          <Accordion label="⚖️ Conformité juridique" titleAs="h2">
             Des modèles pré-rédigés pour :
             <ul>
               <li>
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
               </li>
             </ul>
           </Accordion>
-          <Accordion label="✅ Standards beta">
+          <Accordion label="✅ Standards beta" titleAs="h2">
             <ul>
               <li>Site web accessible</li>
               <li>
@@ -113,19 +113,18 @@ const Home: NextPage = () => {
                 budget
               </li>
               <li>
-                <Link href="/sos">Page SOS</Link> pour venir en aide aux
-                usager(e)s
+                <Link href="/aide">Page d&apos;aide</Link> vos usager(e)s
               </li>
             </ul>
           </Accordion>
-          <Accordion label="🔐 Sécurité">
+          <Accordion label="🔐 Sécurité" titleAs="h2">
             <ul>
               <li>Gestion des headers CSP</li>
               <li>Image docker root-less</li>
               <li>Pre-commit hooks anti fuite de secrets</li>
             </ul>
           </Accordion>
-          <Accordion label="🔎 Testing">
+          <Accordion label="🔎 Testing" titleAs="h2">
             <ul>
               <li>
                 Testing unitaire et de bout-en-bout intégré avec{" "}
@@ -150,7 +149,7 @@ const Home: NextPage = () => {
               <li>CI de lint, test et scan statique</li>
             </ul>
           </Accordion>
-          <Accordion label="📦 Delivery">
+          <Accordion label="📦 Delivery" titleAs="h2">
             <ul>
               <li>
                 Workflows de release automatisés (
@@ -173,17 +172,21 @@ const Home: NextPage = () => {
 
       <h2 className={fr.cx("fr-mt-15w")}>Exemples d'intégrations</h2>
       <Stack spacing={2} sx={{ mt: 2 }} direction="row">
-        <Button title="Trigger sentry event" onClick={onClick1}>
-          Trigger sentry error
+        <Button
+          title="Trigger sentry event"
+          onClick={onClick1}
+          priority="secondary"
+        >
+          Déclencher une erreur Sentry
         </Button>
-
         <Button
           title="Trigger matomo event"
+          priority="secondary"
           onClick={() => {
             matomoPush(["trackEvent", "click", "home"]);
           }}
         >
-          Trigger matomo event
+          Déclencher un évènement Matomo
         </Button>
       </Stack>
     </>
