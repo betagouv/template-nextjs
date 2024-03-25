@@ -76,10 +76,22 @@ const Home: NextPage = () => {
           <Accordion label="⚖️ Conformité juridique">
             Des modèles pré-rédigés pour :
             <ul>
-              <li>Déclaration d'accessibilité numérique</li>
-              <li>Conditions d'utilisation</li>
-              <li>Mentions légales</li>
-              <li>Politique de confidentialité</li>
+              <li>
+                <Link href="/accessibilite">
+                  Déclaration d'accessibilité numérique
+                </Link>
+              </li>
+              <li>
+                <Link href="/cgu">Conditions d'utilisation</Link>
+              </li>
+              <li>
+                <Link href="/mentions-legales">Mentions légales</Link>
+              </li>
+              <li>
+                <Link href="/politique-confidentialite">
+                  Politique de confidentialité
+                </Link>
+              </li>
             </ul>
           </Accordion>
           <Accordion label="✅ Standards beta">
