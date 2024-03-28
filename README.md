@@ -1,6 +1,6 @@
 # template
 
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/betagouv/template/main
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/betagouv/template/main)
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/betagouv/template)
 
 Template minimal en Next.js qui intègre les recommandations tech beta.gouv.fr.
