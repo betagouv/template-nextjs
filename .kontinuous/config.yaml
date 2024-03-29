@@ -1,8 +1,0 @@
-projectName: fabrique
-ciNamespace: ci-fabrique
-
-dependencies:
-  fabrique:
-    extends:
-    - name: ovh
-    - name: buildkit-service

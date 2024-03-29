@@ -5,9 +5,8 @@ FROM node:$NODE_VERSION AS builder
 RUN apk add --no-cache libc6-compat=1.2.4-r2
 WORKDIR /app
 
-COPY yarn.lock .yarnrc.yml ./
-COPY .yarn .yarn
-RUN yarn fetch --immutable
+COPY yarn.lock package.json ./
+RUN yarn  --immutable
 COPY . .
 
 ARG PRODUCTION
@@ -25,11 +24,9 @@ RUN if [ -z "$PRODUCTION" ]; then \
     echo "Overriding .env for staging"; \
     cp .env.staging .env.production; \
     fi && \
-    yarn build:export 
+    yarn build:export
 
-RUN yarn fetch-tools production && yarn cache clean
-
-# Production image, copy all the files and run next
+# Production image, copy all the files and run nginx
 FROM ghcr.io/socialgouv/docker/nginx:sha-1d70757 AS runner
 
 COPY --from=builder /app/out /usr/share/nginx/html

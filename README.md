@@ -7,43 +7,7 @@ Template minimal en Next.js qui intègre les recommandations tech beta.gouv.fr.
 
 > ⚠️ Le [Système de Design de l'État](https://www.systeme-de-design.gouv.fr/) s'adresse **uniquement** aux développeurs et aux concepteurs, qu'ils soient agents publics ou prestataires pour des sites Internet de l'État (Ministères, Administrations centrales, Préfectures, Ambassades, etc.). cf [conditions d'utilisation](https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/perimetre-d-application).
 
-## Description
-
-- 🇫🇷 Basé sur [codegouv/react-dsfr](https://github.com/codegouvfr/react-dsfr)
-- ⚖️ Pages de "conformité" (CGU, RGPD, stats..)
-- 📦 Testing, lint, CI & release automatisés
-- 🔒 Image docker `rootless`, [header CSP](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
-- 🔑 prévention de fuite de secrets avec [talisman](https://github.com/thoughtworks/talisman/)
-- 📊 Intégration de sentry & matomo
-- ⚡️ Basé sur [Next](https://nextjs.org/) et TypeScript
-
-## Dans le détail
-
-### D'un point de vue fonctionnel
-
-- Page principale
-- Politique de confidentialité
-- Mentions légales
-- Conditions générales d'utilisation
-- Statistiques d'utilisation (fonctionnant avec matomo)
-- Déclaration d'accessibilité
-- Healthz
-- Page 404
-
-### D'un point de vue technique
-
-- [storybook](https://storybook.js.org/) permettant de réaliser des stories pour les composants
-- [@testing-library](https://testing-library.com/) pour tester de manière unitaire les composants
-- [jest](https://jestjs.io/) pour tester de manière unitaire le code
-- [cypress](https://www.cypress.io/) pour tester en e2e le frontend
-- [talisman](https://github.com/thoughtworks/talisman/) qui permet de prévenir la publication de secrets dans votre code
-- un [Dockerfile](./Dockerfile) rootless de production basé sur nginx
-- des [Content Security Policy et headers de sécurité de base](https://developer.mozilla.org/fr/docs/Web/HTTP/CSP)
-
-- Côté Next.js:
-  - intégration de [@codegouvfr/react-dsfr](https://github.com/codegouvfr/react-dsfr/) pour le [design système de l'état](https://www.systeme-de-design.gouv.fr/)
-  - intégration de [sentry](https://sentry.io/) pour gérer les erreurs
-  - intégration de [matomo](https://matomo.org/) pour les statistiques d'utilisation
+👉 Démo: https://betagouv.github.io/template
 
 ## Lancer le code
 
