@@ -127,13 +127,23 @@ const Home: NextPage = () => {
           <Accordion label="🔎 Testing" titleAs="h2">
             <ul>
               <li>
-                Testing unitaire et de bout-en-bout intégré avec{" "}
+                Testing de bout-en-bout avec{" "}
                 <a
                   target="_blank"
                   rel="noreferrer noopener"
-                  href="https://cypress.io"
+                  href="https://playwright.dev"
                 >
-                  Cypress.io
+                  Playwright
+                </a>
+              </li>
+              <li>
+                Tests unitaires avec
+                <a
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href="https://vitest.dev"
+                >
+                  vitest
                 </a>
               </li>
               <li>

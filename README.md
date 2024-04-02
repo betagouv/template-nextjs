@@ -25,7 +25,7 @@ Point your browser to [http://127.0.0.1:3000/template](http://127.0.0.1:3000/tem
 ### Tests
 
 ```
-# run JEST unit tests
+# run unit tests with vitest
 yarn test
 
 # build, serve and launch playwright interactive end-to-end tests
