@@ -16,8 +16,6 @@
     "lint": "next lint",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "export": "next export",
-    "build:export": "npm run build && npm run export",
     "e2e": "NEXT_PUBLIC_BASE_PATH='' NODE_ENV=production yarn build && yarn playwright test",
     "test": "jest",
     "test:watch": "jest --watch",
