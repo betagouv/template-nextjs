@@ -17,6 +17,8 @@ ARG NEXT_PUBLIC_SITE_URL
 ENV NEXT_PUBLIC_SITE_URL $NEXT_PUBLIC_SITE_URL
 
 ENV NODE_ENV production
+ENV NEXT_PUBLIC_BASE_PATH ""
+
 WORKDIR /app
 
 RUN yarn postinstall # if you have postinstall script in your package.json
