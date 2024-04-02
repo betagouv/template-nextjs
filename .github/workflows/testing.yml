@@ -1,6 +1,10 @@
 name: 💪 Testing
 
-on: [pull_request, push]
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 concurrency:
   cancel-in-progress: true
