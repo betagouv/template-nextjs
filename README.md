@@ -20,6 +20,21 @@ yarn # to install dependencies
 yarn dev # to run in dev mode
 ```
 
+Point your browser to [http://127.0.0.1:3000/template](http://127.0.0.1:3000/template) and start playing.
+
+### Tests
+
+```
+# run JEST unit tests
+yarn test
+
+# build, serve and launch playwright interactive end-to-end tests
+yarn e2e --ui
+
+# run storybook
+yarn storybook
+```
+
 ### Gestion des environnements
 
 Les variables issues des docker build-args, sont à utiliser dans `next.config.js`, pour les autres, il faut les définir dans les différents [`.env.*`](https://nextjs.org/docs/basic-features/environment-variables#environment-variable-load-order).
@@ -41,3 +56,7 @@ Le fichier `.env.development` est utilisé pour l'environnement de développemen
 | [codegouvfr/docsify-dsfr-template](https://github.com/codegouvfr/docsify-dsfr-template) | Template DSFR pour [docsify](https://docsify.js.org/#/)     |
 | [sneko/dsfr-connect](https://github.com/sneko/dsfr-connect)                             | Themes DSFR pour bootstrap, vuetify, mui, infima, emails... |
 | [socialgouv/template](https://github.com/socialgouv/template)                           | Version initiale de ce template                             |
+
+```
+
+```

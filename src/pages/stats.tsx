@@ -28,7 +28,7 @@ const Stats: NextPage = () => {
     <>
       <Script src={`${basePath}/Charts/dsfr-chart.umd.js`} />
       <Head>
-        <title>Template | Statistiques d&apos;utilisation</title>
+        <title>Statistiques d&apos;utilisation | template</title>
         <link rel="stylesheet" href={`${basePath}/Charts/dsfr-chart.css`} />
       </Head>
       <div className="fr-container fr-my-10w">

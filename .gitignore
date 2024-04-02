@@ -57,3 +57,7 @@ robots.txt
 
 # storybook
 /.out
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

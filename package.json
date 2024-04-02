@@ -18,13 +18,9 @@
     "lint-staged": "lint-staged",
     "export": "next export",
     "build:export": "npm run build && npm run export",
-    "e2e": "cypress open",
-    "e2e:headless": "cypress run",
+    "e2e": "NEXT_PUBLIC_BASE_PATH='' NODE_ENV=production yarn build && yarn playwright test",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
-    "test:e2e:headless": "start-server-and-test dev http://localhost:3000 e2e:headless",
-    "storybook:start": "storybook dev --docs -p 6006",
     "storybook:build": "yarn build-storybook -c .storybook -o .out",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
@@ -36,7 +32,7 @@
     "@codegouvfr/react-dsfr": "^1.9.5",
     "@emotion/react": "^11.11.4",
     "@emotion/server": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/styled": "^11.11.5",
     "@gouvfr/dsfr-chart": "^1.0.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
@@ -47,6 +43,7 @@
     "@next/mdx": "^14.1.4",
     "@sentry/nextjs": "^7.109.0",
     "@socialgouv/matomo-next": "^1.8.1",
+    "dayjs": "^1.11.10",
     "is-ci": "^3.0.1",
     "next": "14.1.4",
     "react": "18.2.0",
@@ -56,6 +53,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",
+    "@playwright/test": "^1.42.1",
     "@storybook/addon-actions": "^7.6.17",
     "@storybook/addon-docs": "^7.6.17",
     "@storybook/addon-essentials": "^7.6.17",
@@ -71,10 +69,9 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^12.1.2",
     "@types/mdx": "^2.0.12",
-    "@types/node": "20.11.30",
+    "@types/node": "^18",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.23",
-    "cypress": "^9.4.1",
     "eslint": "8.57.0",
     "eslint-config-next": "14.1.4",
     "eslint-plugin-jsx-a11y": "^6.8.0",
@@ -87,7 +84,6 @@
     "start-server-and-test": "^2.0.3",
     "storybook": "^7.6.17",
     "storybook-dark-mode": "^3.0.3",
-    "typescript": "4.9.5"
-  },
-  "packageManager": "yarn@4.0.2"
+    "typescript": "5.4.3"
+  }
 }
