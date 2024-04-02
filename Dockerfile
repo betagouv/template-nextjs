@@ -2,7 +2,8 @@ ARG NODE_VERSION=20-alpine3.19@sha256:ef3f47741e161900ddd07addcaca7e76534a9205e4
 
 # Install dependencies only when needed
 FROM node:$NODE_VERSION AS builder
-RUN apk add --no-cache libc6-compat # hadolint disable=DL3018
+# hadolint ignore=DL3018
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY yarn.lock package.json ./
