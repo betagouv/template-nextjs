@@ -1,8 +1,10 @@
-name: Deploy demo
+name: 🌍 Deploy demo
 
 on:
   push:
-    branches: [main, next]
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 concurrency:
   cancel-in-progress: true

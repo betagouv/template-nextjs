@@ -1,6 +1,10 @@
-name: Testing
+name: 💪 Testing
 
-on: [pull_request, push]
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 concurrency:
   cancel-in-progress: true
@@ -16,11 +20,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "18"
           cache: "yarn"
       - name: Install dependencies
         run: |
           yarn --immutable
+      - name: Build code
+        run: |
+          yarn build
       - name: Test code
         run: |
           yarn test

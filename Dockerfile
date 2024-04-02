@@ -1,8 +1,9 @@
-ARG NODE_VERSION=20-alpine3.18@sha256:5ff63217ec2757b29a4414e0f787bfc13c1f9cb6f053e46ff05c1a51bbd2e8e6
+ARG NODE_VERSION=20-alpine3.19@sha256:ef3f47741e161900ddd07addcaca7e76534a9205e4cd73b2ed091ba339004a75
 
 # Install dependencies only when needed
 FROM node:$NODE_VERSION AS builder
-RUN apk add --no-cache libc6-compat=1.2.4-r2
+# hadolint ignore=DL3018
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY yarn.lock package.json ./
@@ -17,6 +18,8 @@ ARG NEXT_PUBLIC_SITE_URL
 ENV NEXT_PUBLIC_SITE_URL $NEXT_PUBLIC_SITE_URL
 
 ENV NODE_ENV production
+ENV NEXT_PUBLIC_BASE_PATH ""
+
 WORKDIR /app
 
 RUN yarn postinstall # if you have postinstall script in your package.json
@@ -24,7 +27,7 @@ RUN if [ -z "$PRODUCTION" ]; then \
     echo "Overriding .env for staging"; \
     cp .env.staging .env.production; \
     fi && \
-    yarn build:export
+    yarn build
 
 # Production image, copy all the files and run nginx
 FROM ghcr.io/socialgouv/docker/nginx:sha-1d70757 AS runner
