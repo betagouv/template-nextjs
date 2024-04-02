@@ -1,4 +1,4 @@
-name: Testing
+name: 💪 Testing
 
 on: [pull_request, push]
 
@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn --immutable
+      - name: Build code
+        run: |
+          yarn build
       - name: Test code
         run: |
           yarn test

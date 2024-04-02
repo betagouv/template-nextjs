@@ -1,4 +1,4 @@
-name: Deploy demo
+name: 🌍 Deploy demo
 
 on:
   push:
