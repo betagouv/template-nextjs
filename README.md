@@ -7,7 +7,7 @@ Template minimal avec Next.js qui intègre les recommandations tech beta.gouv.fr
 
 > ⚠️ Le [Système de Design de l'État](https://www.systeme-de-design.gouv.fr/) s'adresse **uniquement** aux développeurs et aux concepteurs, qu'ils soient agents publics ou prestataires pour des sites Internet de l'État (Ministères, Administrations centrales, Préfectures, Ambassades, etc.). cf [conditions d'utilisation](https://www.systeme-de-design.gouv.fr/utilisation-et-organisation/perimetre-d-application).
 
-👉 Démo: https://betagouv.github.io/template
+👉 Démo: https://betagouv.github.io/template-nextjs
 
 ## Lancer le code
 
