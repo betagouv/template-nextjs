@@ -36,7 +36,7 @@ const Home: NextPage = () => {
           d&apos;implémentation.{" "}
           <b>
             <a
-              href="https://github.com/betagouv/template"
+              href="https://github.com/betagouv/template-nextjs"
               target="_blank"
               rel="noreferrer noopener"
             >
