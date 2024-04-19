@@ -1,4 +1,4 @@
-# template
+# template-nextjs
 
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/betagouv/template/main)
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/betagouv/template)
