@@ -28,8 +28,7 @@ const Home: NextPage = () => {
           recommandées chez betagouv et peut vous faire <b>gagner du temps</b>.
           <br />
           <br />
-          Il permet de déployer rapidement une application web à l&apos;état de
-          l&apos;art, qui respecte nos standards de{" "}
+          Il permet de déployer rapidement une application web qui respecte nos standards de{" "}
           <b>conformité, accessibilité et sécurité</b>.
           <br />
           <br />
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
           d&apos;implémentation.{" "}
           <b>
             <a
-              href="https://github.com/betagouv/template"
+              href="https://github.com/betagouv/template-nextjs"
               target="_blank"
               rel="noreferrer noopener"
             >
