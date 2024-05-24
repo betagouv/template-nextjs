@@ -35,16 +35,6 @@ yarn e2e --ui
 yarn storybook
 ```
 
-### Gestion des environnements
-
-Les variables issues des docker build-args, sont à utiliser dans `next.config.js`, pour les autres, il faut les définir dans les différents [`.env.*`](https://nextjs.org/docs/basic-features/environment-variables#environment-variable-load-order).
-
-Le fichier `.env.staging` est utilisé pour les environnements de review et de pré-production.
-
-Le fichier `.env.development` est utilisé pour l'environnement de développement.
-
-:warning: Les variables d'environnement sont publiques (utilisées durant le build), ne commitez donc pas de variables privées dans ces fichiers.
-
 ## Projets connexes
 
 | projet                                                                                  | description                                                 |
