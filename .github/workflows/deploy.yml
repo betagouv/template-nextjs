@@ -45,6 +45,7 @@ jobs:
           environment: production
           sourcemaps: 'dist/**/*.map'
           projects: template-nextjs
+          version: '{{ github.ref }}'
           ignore_missing: true
 
       # deploy build to gh-pages
