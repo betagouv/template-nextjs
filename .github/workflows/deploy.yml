@@ -30,7 +30,8 @@ jobs:
 
       - name: Build
         env:
-          NODE_ENV: production
+          NODE_ENV: production # JS build mode
+          PRODUCTION: true # for environment (ex: robots.txt)
         run: |
           yarn build
           touch out/.nojekyll
