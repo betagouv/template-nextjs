@@ -35,6 +35,18 @@ jobs:
           yarn build
           touch out/.nojekyll
 
+      - name: Create a Sentry Release
+        uses: getsentry/action-release@v1.1.6
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: betagouv
+          SENTRY_URL: https://sentry.incubateur.net/
+        with:
+          environment: production
+          sourcemaps: 'dist/**/*.map'
+          projects: template-nextjs
+          ignore_missing: true
+
       # deploy build to gh-pages
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.9
