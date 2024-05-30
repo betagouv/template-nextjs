@@ -29,6 +29,14 @@ jobs:
           yarn --immutable
 
       - name: Build
+        env:
+          NODE_ENV: production # JS build mode
+          PRODUCTION: true # for environment (ex: robots.txt)
+          SENTRY_URL: https://sentry.incubateur.net
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: betagouv
+          SENTRY_PROJECT: template-nextjs
+          SENTRY_RELEASE_UPLOAD: true
         run: |
           yarn build
           touch out/.nojekyll
