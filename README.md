@@ -39,7 +39,8 @@ yarn storybook
 
 | projet                                                                                  | description                                                 |
 | --------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| [inclusion-numerique/stack](https://github.com/inclusion-numerique/stack)               | Template DSFR + Next.js + SSO                               |
+| [inclusion-numerique/stack](https://github.com/inclusion-numerique/stack)               | Stack DSFR + Next.js + OIDC                                 |
+| [InseeFrLab/vite-insee-starter](https://github.com/InseeFrLab/vite-insee-starter)       | Starter SPA Vite + DSFR + OIDC                              |
 | [betagouv/rails-template](https://github.com/betagouv/rails-template)                   | Template DSFR pour Ruby on Rails                            |
 | [betagouv/django-template](https://github.com/betagouv/django-template)                 | Template DSFR pour Django                                   |
 | [codegouvfr/eleventy-dsfr](https://github.com/codegouvfr/eleventy-dsfr)                 | Template DSFR pour [eleventy](https://www.11ty.dev/)        |
