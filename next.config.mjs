@@ -30,8 +30,8 @@ const moduleExports = {
     return config;
   },
   sentry: {
-    disableClientWebpackPlugin: true,
-    disableServerWebpackPlugin: true,
+    //disableClientWebpackPlugin: true,
+    //disableServerWebpackPlugin: true,
   },
   env: {
     NEXT_PUBLIC_APP_VERSION: version,
