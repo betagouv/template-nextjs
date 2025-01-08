@@ -145,16 +145,6 @@ const Home: NextPage = () => {
                   vitest
                 </a>
               </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://storybook.js.org/"
-                >
-                  Storybook
-                </a>{" "}
-                pour tester/review les composants en isolation
-              </li>
               <li>CI de lint, test et scan statique</li>
             </ul>
           </Accordion>

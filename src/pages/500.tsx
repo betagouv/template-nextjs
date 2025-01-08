@@ -19,13 +19,14 @@ const Error500: NextPage = () => {
               Erreur 500
             </h1>
             <p data-p="Erreur sur la page">
-              Un erreur s'est produite lors de l'execution de la page
+              Un erreur s&apos;est produite lors de l&apos;execution de la page
             </p>
             <p className="fr-text--xl">
               Nos équipes ont été notifiées et interviendront dans les meilleurs
               délais.
               <br />
-              Ré-essayez en passant par la <Link href="/">Page d'accueil</Link>.
+              Ré-essayez en passant par la{" "}
+              <Link href="/">Page d&apos;accueil</Link>.
             </p>
           </div>
           <div className="fr-server__image fr-col-12 fr-col-md-3">

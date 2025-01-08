@@ -30,9 +30,6 @@ yarn test
 
 # build, serve and launch playwright interactive end-to-end tests
 yarn e2e --ui
-
-# run storybook
-yarn storybook
 ```
 
 ## Projets connexes
