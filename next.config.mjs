@@ -3,7 +3,7 @@ import createMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import ContentSecurityPolicy from "./csp.config.mjs";
 
-import pkg from "./package.json" assert { type: "json" };
+import pkg from "./package.json" with { type: "json" };
 
 const withMDX = createMDX({
   options: {
