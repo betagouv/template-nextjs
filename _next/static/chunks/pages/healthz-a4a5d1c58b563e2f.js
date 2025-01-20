@@ -1,0 +1,2 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[684],{21711:function(n,e,i){(window.__NEXT_P=window.__NEXT_P||[]).push(["/healthz",function(){return i(20877)}])},20877:function(n,e,i){"use strict";i.r(e);var r=i(85893);i(67294),e.default=()=>(0,r.jsx)(r.Fragment,{children:(0,r.jsx)("div",{className:"fr-container fr-my-6w",children:(0,r.jsx)("h1",{children:"App is up and running"})})})}},function(n){n.O(0,[888,774,179],function(){return n(n.s=21711)}),_N_E=n.O()}]);
+//# sourceMappingURL=healthz-a4a5d1c58b563e2f.js.map
