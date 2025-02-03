@@ -30,22 +30,18 @@ yarn test
 
 # build, serve and launch playwright interactive end-to-end tests
 yarn e2e --ui
-
-# run storybook
-yarn storybook
 ```
-
 ## Projets connexes
 
-| projet                                                                                  | description                                                 |
-| --------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| [inclusion-numerique/stack](https://github.com/inclusion-numerique/stack)               | Stack DSFR + Next.js + OIDC                                 |
-| [InseeFrLab/vite-insee-starter](https://github.com/InseeFrLab/vite-insee-starter)       | Starter SPA Vite + DSFR + OIDC                              |
-| [betagouv/rails-template](https://github.com/betagouv/rails-template)                   | Template DSFR pour Ruby on Rails                            |
-| [betagouv/django-template](https://github.com/betagouv/django-template)                 | Template DSFR pour Django                                   |
-| [codegouvfr/eleventy-dsfr](https://github.com/codegouvfr/eleventy-dsfr)                 | Template DSFR pour [eleventy](https://www.11ty.dev/)        |
-| [codegouvfr/docsify-dsfr-template](https://github.com/codegouvfr/docsify-dsfr-template) | Template DSFR pour [docsify](https://docsify.js.org/#/)     |
-| [sneko/dsfr-connect](https://github.com/sneko/dsfr-connect)                             | Themes DSFR pour bootstrap, vuetify, mui, infima, emails... |
-| [laruiss/create-vue-dsfr](https://github.com/laruiss/create-vue-dsfr)                   | Un starter Vue.js + Nuxt3 + DSFR                            |
-| [socialgouv/template](https://github.com/socialgouv/template)                           | Version initiale de ce template                             |
-
+| projet                                                                                          | description                                                 |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [garronej/react-dsfr-next-appdir-demo](https://github.com/garronej/react-dsfr-next-appdir-demo) | minimal Next.js + react-dsfr + MUI integration              |
+| [inclusion-numerique/stack](https://github.com/inclusion-numerique/stack)                       | Stack DSFR + Next.js + OIDC                                 |
+| [InseeFrLab/vite-insee-starter](https://github.com/InseeFrLab/vite-insee-starter)               | Starter SPA Vite + DSFR + OIDC                              |
+| [betagouv/rails-template](https://github.com/betagouv/rails-template)                           | Template DSFR pour Ruby on Rails                            |
+| [betagouv/django-template](https://github.com/betagouv/django-template)                         | Template DSFR pour Django                                   |
+| [codegouvfr/eleventy-dsfr](https://github.com/codegouvfr/eleventy-dsfr)                         | Template DSFR pour [eleventy](https://www.11ty.dev/)        |
+| [codegouvfr/docsify-dsfr-template](https://github.com/codegouvfr/docsify-dsfr-template)         | Template DSFR pour [docsify](https://docsify.js.org/#/)     |
+| [sneko/dsfr-connect](https://github.com/sneko/dsfr-connect)                                     | Themes DSFR pour bootstrap, vuetify, mui, infima, emails... |
+| [laruiss/create-vue-dsfr](https://github.com/laruiss/create-vue-dsfr)                           | Un starter Vue.js + Nuxt3 + DSFR                            |
+| [socialgouv/template](https://github.com/socialgouv/template)                                   | Version initiale de ce template                             |

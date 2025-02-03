@@ -20,12 +20,13 @@ const NotFound: NextPage = () => {
               Erreur 404
             </h1>
             <p data-p="La page n'a pas été trouvée">
-              La page n'a pas été trouvée
+              La page n&apos;a pas été trouvée
             </p>
             <p className="fr-text--xl">
               Impossible de trouver la ressource demandée.
               <br />
-              Ré-essayez en passant par la <Link href="/">Page d'accueil</Link>.
+              Ré-essayez en passant par la{" "}
+              <Link href="/">Page d&apos;accueil</Link>.
             </p>
           </div>
           <div className="fr-server__image fr-col-12 fr-col-md-3">
