@@ -37,6 +37,7 @@ jobs:
           SENTRY_ORG: betagouv
           SENTRY_PROJECT: template-nextjs
           SENTRY_RELEASE_UPLOAD: true
+          SENTRY_LOG_LEVEL: debug
         run: |
           yarn build
           touch out/.nojekyll
