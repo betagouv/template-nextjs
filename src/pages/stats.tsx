@@ -50,7 +50,7 @@ const Stats: NextPage = () => {
             description="C'est le nombre de pages vues uniques sur le site sur les 12 derniers mois"
           />
         </div>
-        <br />
+        {/* <br />
         <br />
         <h1>Statistiques d&apos;impact</h1>
         <ScatterChart
@@ -70,7 +70,7 @@ const Stats: NextPage = () => {
           y={JSON.stringify([10, 20, 30])}
         ></PieChart>
         <br />
-        <br />
+        <br /> */}
       </div>
     </>
   );

@@ -97,15 +97,7 @@ const Home: NextPage = () => {
             <ul>
               <li>Site web accessible</li>
               <li>
-                <Link href="/stats">Page de statistiques</Link> avec{" "}
-                <a
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  href="https://github.com/GouvernementFR/dsfr-chart"
-                >
-                  dsfr-chart
-                </a>{" "}
-                pour suivre les KPIs
+                <Link href="/stats">Page de statistiques</Link> pour suivre les KPIs
               </li>
               <li>
                 <Link href="/budget">Page de budget</Link> pour publier son

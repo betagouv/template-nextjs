@@ -12,9 +12,6 @@ test("has proper headers", async ({ page }) => {
   await page.goto(url);
 
   await expect(
-    await page
-      .getByRole("heading", { level: 1 })
-      .getByText("Statistiques d'impact")
-      .count()
+    await page.getByRole("heading", { level: 1 }).getByText("Usage web").count()
   ).toBe(1);
 });
