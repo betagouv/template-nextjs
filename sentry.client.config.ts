@@ -12,6 +12,13 @@ Sentry.init({
   environment: SENTRY_ENV ?? "development",
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 0.1,
+  beforeSend(event, hint) {
+    // Check if it is an exception, and if so, show the report dialog
+    if (event.exception && event.event_id) {
+      Sentry.showReportDialog({ eventId: event.event_id });
+    }
+    return event;
+  },
   // ...
   // Note: if you want to override the automatic release value, do not set a
   // `release` value here - use the environment variable `SENTRY_RELEASE`, so
