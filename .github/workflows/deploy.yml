@@ -22,11 +22,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "yarn"
+          cache: "npm"
 
       - name: Install dependencies
         run: |
-          yarn --immutable
+          npm ci
 
       - name: Build
         env:
@@ -39,7 +39,7 @@ jobs:
           SENTRY_RELEASE_UPLOAD: true
           SENTRY_LOG_LEVEL: debug
         run: |
-          yarn build
+          npm run build
           touch out/.nojekyll
 
       # deploy build to gh-pages

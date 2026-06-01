@@ -29,8 +29,8 @@ Après avoir cloné le projet :
 ### Développement
 
 ```bash
-yarn # to install dependencies
-yarn dev # to run in dev mode
+npm install # to install dependencies
+npm run dev # to run in dev mode
 ```
 
 Point your browser to [http://127.0.0.1:3000/template](http://127.0.0.1:3000/template) and start playing.
@@ -39,10 +39,10 @@ Point your browser to [http://127.0.0.1:3000/template](http://127.0.0.1:3000/tem
 
 ```
 # run unit tests with vitest
-yarn test
+npm test
 
 # build, serve and launch playwright interactive end-to-end tests
-yarn e2e --ui
+npm run e2e -- --ui
 ```
 ## Projets connexes
 

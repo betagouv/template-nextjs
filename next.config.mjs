@@ -19,7 +19,6 @@ const moduleExports = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   reactStrictMode: true,
-  swcMinify: true,
   output: "export",
   webpack: (config) => {
     config.module.rules.push({
@@ -28,10 +27,6 @@ const moduleExports = {
     });
 
     return config;
-  },
-  sentry: {
-    //disableClientWebpackPlugin: true,
-    //disableServerWebpackPlugin: true,
   },
   env: {
     NEXT_PUBLIC_APP_VERSION: version,
@@ -42,5 +37,11 @@ const moduleExports = {
 };
 
 export default {
-  ...withMDX(withSentryConfig(moduleExports, { silent: true })),
+  ...withMDX(
+    withSentryConfig(moduleExports, {
+      silent: true,
+      autoInstrumentServerFunctions: false,
+      autoInstrumentMiddleware: false,
+    })
+  ),
 };
