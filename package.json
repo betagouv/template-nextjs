@@ -36,7 +36,6 @@
     "@sentry/nextjs": "^8.0.0",
     "@socialgouv/matomo-next": "^1.11.0",
     "dayjs": "^1.11.19",
-    "is-ci": "^3.0.1",
     "next": "^15.0.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
@@ -44,7 +43,6 @@
     "tss-react": "^4.9.20"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.5",
     "@eslint/eslintrc": "^3.0.0",
     "@playwright/test": "^1.57.0",
     "@swc-node/register": "^1.11.1",
@@ -63,7 +61,6 @@
     "jsdom": "^25.0.0",
     "lint-staged": "15.3.0",
     "node-talisman": "^1.29.22",
-    "start-server-and-test": "2.0.9",
     "typescript": "5.9.3",
     "vitest": "^2.0.0"
   }
