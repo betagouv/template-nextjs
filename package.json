@@ -4,7 +4,7 @@
   "private": true,
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=18 || >=20"
+    "node": ">=24"
   },
   "scripts": {
     "predev": "only-include-used-icons",
@@ -28,10 +28,10 @@
     "@emotion/styled": "^11.14.0",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@mui/icons-material": "^5.18.0",
-    "@mui/material": "^5.18.0",
-    "@mui/x-data-grid": "^5.17.26",
-    "@mui/x-date-pickers": "^5.0.20",
+    "@mui/icons-material": "^6.0.0",
+    "@mui/material": "^6.0.0",
+    "@mui/x-data-grid": "^7.0.0",
+    "@mui/x-date-pickers": "^7.0.0",
     "@next/mdx": "^15.0.0",
     "@sentry/nextjs": "^8.0.0",
     "@socialgouv/matomo-next": "^1.11.0",
@@ -46,12 +46,14 @@
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@eslint/eslintrc": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.60.0",
+    "@typescript-eslint/parser": "^8.60.0",
     "@playwright/test": "^1.57.0",
     "@swc-node/register": "^1.11.1",
     "@swc/core": "^1.15.8",
     "@testing-library/react": "^14.3.1",
     "@types/mdx": "^2.0.13",
-    "@types/node": "18.19.70",
+    "@types/node": "^24.0.0",
     "@types/react": "18.2.73",
     "@types/react-dom": "18.2.23",
     "@vitejs/plugin-react": "^4.7.0",

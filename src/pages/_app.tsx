@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import { trackPagesRouter } from "@socialgouv/matomo-next";
 import { createEmotionSsrAdvancedApproach } from "tss-react/next";
 import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next-pagesdir";
 import { Footer } from "@codegouvfr/react-dsfr/Footer";
@@ -114,8 +115,8 @@ const bottomLinks = [
         process.env.NEXT_PUBLIC_APP_VERSION
           ? `/releases/tag/v${process.env.NEXT_PUBLIC_APP_VERSION}`
           : process.env.NEXT_PUBLIC_APP_VERSION_COMMIT
-          ? `/commit/${process.env.NEXT_PUBLIC_APP_VERSION}`
-          : ""
+            ? `/commit/${process.env.NEXT_PUBLIC_APP_VERSION}`
+            : ""
       }`,
     },
   },
@@ -218,7 +219,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
 function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    init({
+    trackPagesRouter({
       url: process.env.NEXT_PUBLIC_MATOMO_URL ?? "",
       siteId: process.env.NEXT_PUBLIC_MATOMO_SITE_ID ?? "",
     });
@@ -233,7 +234,6 @@ function App({ Component, pageProps }: AppProps) {
       }}
     >
       <Layout>
-        {/*@ts-ignore*/}
         <Component {...pageProps} />
       </Layout>
     </div>
