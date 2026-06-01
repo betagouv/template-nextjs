@@ -6,8 +6,8 @@ FROM node:$NODE_VERSION AS builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY yarn.lock package.json ./
-RUN yarn  --immutable
+COPY package-lock.json package.json ./
+RUN npm ci
 COPY . .
 
 ARG PRODUCTION
@@ -24,12 +24,11 @@ ENV NEXT_PUBLIC_BASE_PATH ""
 
 WORKDIR /app
 
-RUN yarn postinstall # if you have postinstall script in your package.json
 RUN if [ -z "$PRODUCTION" ]; then \
     echo "Overriding .env for staging"; \
     cp .env.staging .env.production; \
     fi && \
-    yarn build
+    npm run build
 
 # Production image, copy all the files and run nginx
 FROM ghcr.io/socialgouv/docker/nginx:sha-1d70757 AS runner
