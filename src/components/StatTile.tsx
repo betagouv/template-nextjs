@@ -6,7 +6,7 @@ export type StatTileProps = {
   description?: string | React.ReactNode;
 };
 
-export const StatTile = (props: StatTileProps): JSX.Element => {
+export const StatTile = (props: StatTileProps) => {
   return (
     <div className={fr.cx("fr-col-12", "fr-col-md-4")}>
       <div className={fr.cx("fr-card", "fr-card--no-arrow")}>
