@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><link rel="preload" href="/template-nextjs/_next/static/media/Marianne-Regular.119b3a3e.woff2" as="font" crossorigin="anonymous"/><link rel="preload" href="/template-nextjs/_next/static/media/Marianne-Medium.452138fa.woff2" as="font" crossorigin="anonymous"/><link rel="preload" href="/template-nextjs/_next/static/media/Marianne-Bold.f0ef9bad.woff2" as="font" crossorigin="anonymous"/><link rel="apple-touch-icon" href="/template-nextjs/_next/static/media/apple-touch-icon.1db30588.png"/><link rel="icon" href="/template-nextjs/_next/static/media/favicon.f453a8cf.svg" type="image/svg+xml"/><link rel="shortcut icon" href="/template-nextjs/_next/static/media/favicon.8c087985.ico" type="image/x-icon"/><style id="dsfr-root-color-scheme">:root { color-scheme: light; }</style><meta name="theme-color" content="#ffffff"/><script>
+<!DOCTYPE html><html><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><link rel="preload" href="/template-nextjs/_next/static/media/Marianne-Regular.119b3a3e.woff2" as="font" crossorigin="anonymous" data-next-head=""/><link rel="preload" href="/template-nextjs/_next/static/media/Marianne-Medium.452138fa.woff2" as="font" crossorigin="anonymous" data-next-head=""/><link rel="preload" href="/template-nextjs/_next/static/media/Marianne-Bold.f0ef9bad.woff2" as="font" crossorigin="anonymous" data-next-head=""/><link rel="apple-touch-icon" href="/template-nextjs/_next/static/media/apple-touch-icon.1db30588.png" data-next-head=""/><link rel="icon" href="/template-nextjs/_next/static/media/favicon.f453a8cf.svg" type="image/svg+xml" data-next-head=""/><link rel="shortcut icon" href="/template-nextjs/_next/static/media/favicon.8c087985.ico" type="image/x-icon" data-next-head=""/><style id="dsfr-root-color-scheme">:root { color-scheme: light; }</style><meta name="theme-color" content="#ffffff"/><script data-next-head="">
 {
 
     window.ssrWasPerformedWithIsDark = "system" === "dark";
@@ -68,59 +68,95 @@
     
     })();
 
-    document.documentElement.setAttribute(
-        "data-fr-scheme",
-        (() => {
-            const colorSchemeReadFromLocalStorage = localStorage.getItem("scheme");
+    const effect = ()=> {
 
-            if (colorSchemeReadFromLocalStorage === null) {
-                return "system";
+        document.documentElement.setAttribute(
+            "data-fr-scheme",
+            (() => {
+                const colorSchemeReadFromLocalStorage = localStorage.getItem("scheme");
+
+                if (colorSchemeReadFromLocalStorage === null) {
+                    return "system";
+                }
+
+                return colorSchemeReadFromLocalStorage;
+            })()
+        );
+        document.documentElement.setAttribute("data-fr-theme", isDark ? "dark" : "light")
+
+        {
+
+            let element= document.getElementById("dsfr-root-color-scheme");
+
+    		if( element !== null ){
+    			element.remove()
+    		}
+
+            element = document.createElement("style");
+
+    		if ("" !== "") {
+    			element.setAttribute("nonce", "");
+    		}
+
+            element.id = "dsfr-root-color-scheme";
+
+            element.innerHTML = sanitizer.createHTML(`:root { color-scheme: ${isDark ? "dark" : "light"}; }`);
+
+            document.head.appendChild(element);
+
+        }
+
+        {
+
+            const name = "theme-color";
+
+            let element = document.querySelector(`meta[name=${name}]`);
+    
+    		if( element !== null ){
+    			element.remove();
+    		}
+
+            element = document.createElement("meta");
+
+            element.name = name;
+
+            element.content = isDark ? "#161616" : "#ffffff";
+
+            document.head.appendChild(element);
+
+        }
+
+    };
+
+    effect();
+
+    // NOTE: This is just for global-error.tsx support
+    {
+
+        const observer = new MutationObserver((mutationsList) => {
+          for (const mutation of mutationsList) {
+            if (
+              mutation.type === "attributes" &&
+              mutation.attributeName === "data-fr-scheme"
+            ) {
+              const htmlEl = mutation.target;
+
+              if (htmlEl.hasAttribute("data-fr-js")) {
+                observer.disconnect(); 
+              }
+
+              if (!htmlEl.hasAttribute("data-fr-scheme")) {
+                effect();
+                observer.disconnect(); 
+              }
             }
+          }
+        });
 
-            return colorSchemeReadFromLocalStorage;
-        })()
-    );
-    document.documentElement.setAttribute("data-fr-theme", isDark ? "dark" : "light")
-
-    {
-
-        let element= document.getElementById("dsfr-root-color-scheme");
-
-		if( element !== null ){
-			element.remove()
-		}
-
-        element = document.createElement("style");
-
-		if ("" !== "") {
-			element.setAttribute("nonce", "");
-		}
-
-        element.id = "dsfr-root-color-scheme";
-
-        element.innerHTML = sanitizer.createHTML(`:root { color-scheme: ${isDark ? "dark" : "light"}; }`);
-
-        document.head.appendChild(element);
-
-    }
-
-    {
-
-        const name = "theme-color";
-
-        let element = document.querySelector(`meta[name=${name}]`);
-		
-		if( element !== null ){
-			element.remove();
-		}
-
-        element = document.createElement("meta");
-
-        element.name = name;
-
-        element.content = isDark ? "#161616" : "#ffffff";
-
-        document.head.appendChild(element);
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["data-fr-scheme"],
+        });
 
     }
 
@@ -133,8 +169,8 @@
   frame-src &#x27;self&#x27; *.gouv.fr;
   style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;;
   font-src &#x27;self&#x27; data: blob:;
-"/><link rel="icon" href="/favicon.ico"/><meta name="description" content="Template Next.js beta.gouv.fr"/><title>Budget | template</title><meta name="next-head-count" content="14"/><link data-next-font="" rel="preconnect" href="/" crossorigin="anonymous"/><link rel="preload" href="/template-nextjs/_next/static/css/e67842736717967e.css" as="style"/><link rel="stylesheet" href="/template-nextjs/_next/static/css/e67842736717967e.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/template-nextjs/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/template-nextjs/_next/static/chunks/webpack-5203f3c1efd6ac6f.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/framework-ce6d72b781397883.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/main-1df3b744286e7c26.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/pages/_app-b295302ff8628418.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/pages/budget-f1856acf67573aaa.js" defer=""></script><script src="/template-nextjs/_next/static/wFJGwxznnzEDaxBl6BjkA/_buildManifest.js" defer=""></script><script src="/template-nextjs/_next/static/wFJGwxznnzEDaxBl6BjkA/_ssgManifest.js" defer=""></script><style id="css-emotion-cache-insertion-point"></style></head><body><div id="__next"><div style="min-height:100vh;display:flex;flex-direction:column"><div id="fr-skiplinks-:R56:" class="fr-skiplinks"><nav class="fr-container" role="navigation" aria-label="Accès rapide"><ul class="fr-skiplinks__list"><li><a class="fr-link" href="#fr-header-main-navigation">Menu</a></li><li><a class="fr-link" href="#content">Contenu</a></li><li><a class="fr-link" href="#fr-footer">Pied de page</a></li></ul></nav></div><button id="fr-theme-modal-hidden-control-button" aria-controls="fr-theme-modal" data-fr-opened="false" type="button" tabindex="-1" aria-hidden="true" class="fr-btn fr-hidden"> </button><dialog aria-labelledby="fr-modal-title-fr-theme-modal" id="fr-theme-modal" class="fr-modal" data-fr-concealing-backdrop="true"><div class="fr-container fr-container--fluid fr-container-md"><div class="fr-grid-row fr-grid-row--center"><div class="fr-col-12 fr-col-md-6 fr-col-lg-4"><div class="fr-modal__body"><div class="fr-modal__header"><button class="fr-btn--close fr-btn" title="Fermer" aria-controls="fr-theme-modal" type="button">Fermer</button></div><div class="fr-modal__content"><h1 id="fr-modal-title-fr-theme-modal" class="fr-modal__title">Paramètres d&#x27;affichage</h1><div class="fr-display"><div class="fr-form-group"><fieldset class="fr-fieldset"><legend class="fr-fieldset__legend fr-text--regular">Choisissez un thème pour personnaliser l&#x27;apparence du site.</legend><div class="fr-fieldset__content"><div class="fr-radio-group fr-radio-rich"><input type="radio" id=":Rn6:-light" name="fr-radios-theme" value="light"/><label class="fr-label" for=":Rn6:-light">Thème clair</label><div class="fr-radio-rich__img"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80px" height="80px" viewBox="0 0 80 80"><use class="fr-artwork-decorative" xlink:href="/template-nextjs/_next/static/media/light.268f5ade.svg#artwork-decorative"></use><use class="fr-artwork-minor" xlink:href="/template-nextjs/_next/static/media/light.268f5ade.svg#artwork-minor"></use><use class="fr-artwork-major" xlink:href="/template-nextjs/_next/static/media/light.268f5ade.svg#artwork-major"></use></svg></div></div><div class="fr-radio-group fr-radio-rich"><input type="radio" id=":Rn6:-dark" name="fr-radios-theme" value="dark"/><label class="fr-label" for=":Rn6:-dark">Thème sombre</label><div class="fr-radio-rich__img"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80px" height="80px" viewBox="0 0 80 80"><use class="fr-artwork-decorative" xlink:href="/template-nextjs/_next/static/media/dark.8be47118.svg#artwork-decorative"></use><use class="fr-artwork-minor" xlink:href="/template-nextjs/_next/static/media/dark.8be47118.svg#artwork-minor"></use><use class="fr-artwork-major" xlink:href="/template-nextjs/_next/static/media/dark.8be47118.svg#artwork-major"></use></svg></div></div><div class="fr-radio-group fr-radio-rich"><input type="radio" id=":Rn6:-system" name="fr-radios-theme" value="system"/><label class="fr-label" for=":Rn6:-system">Système.<span class="fr-hint-text">Utilise les paramètres système.</span></label><div class="fr-radio-rich__img"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80px" height="80px" viewBox="0 0 80 80"><use class="fr-artwork-decorative" xlink:href="/template-nextjs/_next/static/media/system.ba37b538.svg#artwork-decorative"></use><use class="fr-artwork-minor" xlink:href="/template-nextjs/_next/static/media/system.ba37b538.svg#artwork-minor"></use><use class="fr-artwork-major" xlink:href="/template-nextjs/_next/static/media/system.ba37b538.svg#artwork-major"></use></svg></div></div></div></fieldset></div></div></div></div></div></div></div></dialog><header role="banner" id="fr-header" class="fr-header"><div class="fr-header__body"><div class="fr-container"><div class="fr-header__body-row"><div class="fr-header__brand fr-enlarge-link"><div class="fr-header__brand-top"><div class="fr-header__logo"><p class="fr-logo">République<br/>Française</p></div><div class="fr-header__navbar"><button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="header-menu-modal-fr-header" aria-haspopup="menu" id="fr-header-menu-button" title="Menu">Menu</button></div></div><div class="fr-header__service"><a title="Accueil - Nom de l’entité (ministère, secrétariat d&#x27;état, gouvernement)" href="/template-nextjs"><p class="fr-header__service-title">Nom du service numérique</p></a><p class="fr-header__service-tagline">Description du service numérique</p></div></div><div class="fr-header__tools"><div class="fr-header__tools-links"><ul class="fr-btns-group"><li><button id="fr-header-quick-access-item-0" aria-controls="fr-theme-modal" data-fr-opened="false" class="fr-btn fr-icon-theme-fill">Paramètres d&#x27;affichage</button></li></ul></div></div></div></div></div><div class="fr-header__menu fr-modal" id="header-menu-modal-fr-header" aria-labelledby="fr-header-menu-button"><div class="fr-container"><button id="fr-header-mobile-overlay-button-close" class="fr-btn--close fr-btn" aria-controls="header-menu-modal-fr-header" title="Fermer">Fermer</button><div class="fr-header__menu-links"><ul class="fr-btns-group"><li><button id="fr-header-quick-access-item-0-mobile" aria-controls="fr-theme-modal" data-fr-opened="false" class="fr-btn fr-icon-theme-fill">Paramètres d&#x27;affichage</button></li></ul></div><nav id="fr-header-main-navigation" class="fr-nav" role="navigation" aria-label="Menu principal"><ul class="fr-nav__list"><li class="fr-nav__item"><a id="fr-header-main-navigation-link-0" class="fr-nav__link" href="/template-nextjs">Accueil</a></li><li class="fr-nav__item"><a id="fr-header-main-navigation-link-1" class="fr-nav__link" href="/template-nextjs/dsfr">DSFR playground</a></li><li class="fr-nav__item"><a id="fr-header-main-navigation-link-2" class="fr-nav__link" href="/template-nextjs/mui">Mui playground</a></li><li class="fr-nav__item"><a id="fr-header-main-navigation-link-3" class="fr-nav__link" href="/template-nextjs/article">Article</a></li></ul></nav></div></div></header><div class="fr-container fr-container--fluid fr-p-5w" id="content">
-<div id="fr-alert-:R1p6:" class="fr-alert fr-alert--info" style="margin-bottom:20px"><h3 class="fr-alert__title">Cette page doit être mise à jour</h3><div></div></div>
+" data-next-head=""/><link rel="icon" href="/favicon.ico" data-next-head=""/><meta name="description" content="Template Next.js beta.gouv.fr" data-next-head=""/><title data-next-head="">Budget | template</title><link data-next-font="" rel="preconnect" href="/" crossorigin="anonymous"/><link rel="preload" href="/template-nextjs/_next/static/css/6d2dfdaccf717a3b.css" as="style"/><link rel="stylesheet" href="/template-nextjs/_next/static/css/6d2dfdaccf717a3b.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/template-nextjs/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/template-nextjs/_next/static/chunks/webpack-90007ac8c5e5b511.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/framework-a1a9c961d945caea.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/main-69154062c3007356.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/pages/_app-d5b1f5116b069caf.js" defer=""></script><script src="/template-nextjs/_next/static/chunks/pages/budget-e7f2896ec0917a93.js" defer=""></script><script src="/template-nextjs/_next/static/RdT3IsdAp0RfJKdWIWEea/_buildManifest.js" defer=""></script><script src="/template-nextjs/_next/static/RdT3IsdAp0RfJKdWIWEea/_ssgManifest.js" defer=""></script><style id="css-emotion-cache-insertion-point"></style></head><body><div id="__next"><div style="min-height:100vh;display:flex;flex-direction:column"><div id="fr-skiplinks-:R1b6:" class="fr-skiplinks"><nav class="fr-container" role="navigation" aria-label="Accès rapide"><ul class="fr-skiplinks__list"><li><a class="fr-link" href="#fr-header-main-navigation">Menu</a></li><li><a class="fr-link" href="#content">Contenu</a></li><li><a class="fr-link" href="#fr-footer">Pied de page</a></li></ul></nav></div><button id="fr-theme-modal-hidden-control-button" aria-controls="fr-theme-modal" data-fr-opened="false" type="button" tabindex="-1" aria-hidden="true" class="fr-btn fr-hidden"> </button><dialog aria-labelledby="fr-modal-title-fr-theme-modal" id="fr-theme-modal" class="fr-modal" data-fr-concealing-backdrop="true"><div class="fr-container fr-container--fluid fr-container-md"><div class="fr-grid-row fr-grid-row--center"><div class="fr-col-12 fr-col-md-6 fr-col-lg-4"><div class="fr-modal__body"><div class="fr-modal__header"><button class="fr-btn--close fr-btn" title="Fermer" aria-controls="fr-theme-modal" type="button">Fermer</button></div><div class="fr-modal__content"><h1 id="fr-modal-title-fr-theme-modal" class="fr-modal__title">Paramètres d&#x27;affichage</h1><div class="fr-display"><div class="fr-form-group"><fieldset class="fr-fieldset"><legend class="fr-fieldset__legend fr-text--regular">Choisissez un thème pour personnaliser l&#x27;apparence du site.</legend><div class="fr-fieldset__content"><div class="fr-radio-group fr-radio-rich"><input type="radio" id=":R5r6:-light" name="fr-radios-theme" value="light"/><label class="fr-label" for=":R5r6:-light">Thème clair</label><div class="fr-radio-rich__img"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80px" height="80px" viewBox="0 0 80 80"><use class="fr-artwork-decorative" xlink:href="/template-nextjs/_next/static/media/light.268f5ade.svg#artwork-decorative"></use><use class="fr-artwork-minor" xlink:href="/template-nextjs/_next/static/media/light.268f5ade.svg#artwork-minor"></use><use class="fr-artwork-major" xlink:href="/template-nextjs/_next/static/media/light.268f5ade.svg#artwork-major"></use></svg></div></div><div class="fr-radio-group fr-radio-rich"><input type="radio" id=":R5r6:-dark" name="fr-radios-theme" value="dark"/><label class="fr-label" for=":R5r6:-dark">Thème sombre</label><div class="fr-radio-rich__img"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80px" height="80px" viewBox="0 0 80 80"><use class="fr-artwork-decorative" xlink:href="/template-nextjs/_next/static/media/dark.e14f8456.svg#artwork-decorative"></use><use class="fr-artwork-minor" xlink:href="/template-nextjs/_next/static/media/dark.e14f8456.svg#artwork-minor"></use><use class="fr-artwork-major" xlink:href="/template-nextjs/_next/static/media/dark.e14f8456.svg#artwork-major"></use></svg></div></div><div class="fr-radio-group fr-radio-rich"><input type="radio" id=":R5r6:-system" name="fr-radios-theme" value="system"/><label class="fr-label" for=":R5r6:-system">Système<span class="fr-hint-text">Utilise les paramètres système.</span></label><div class="fr-radio-rich__img"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="80px" height="80px" viewBox="0 0 80 80"><use class="fr-artwork-decorative" xlink:href="/template-nextjs/_next/static/media/system.ba37b538.svg#artwork-decorative"></use><use class="fr-artwork-minor" xlink:href="/template-nextjs/_next/static/media/system.ba37b538.svg#artwork-minor"></use><use class="fr-artwork-major" xlink:href="/template-nextjs/_next/static/media/system.ba37b538.svg#artwork-major"></use></svg></div></div></div></fieldset></div></div></div></div></div></div></div></dialog><header role="banner" id="fr-header" class="fr-header"><div class="fr-header__body"><div class="fr-container"><div class="fr-header__body-row"><div class="fr-header__brand fr-enlarge-link"><div class="fr-header__brand-top"><div class="fr-header__logo"><p class="fr-logo">République<br/>Française</p></div><div class="fr-header__navbar"><button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="header-menu-modal-fr-header" id="fr-header-menu-button" title="Menu">Menu</button></div></div><div class="fr-header__service"><a title="Accueil - Nom de l’entité (ministère, secrétariat d&#x27;état, gouvernement)" href="/template-nextjs"><p class="fr-header__service-title">Nom du service numérique</p></a><p class="fr-header__service-tagline">Description du service numérique</p></div></div><div class="fr-header__tools"><div class="fr-header__tools-links"><ul class="fr-btns-group"><li><button id="fr-header-quick-access-item-0" aria-controls="fr-theme-modal" data-fr-opened="false" class="fr-btn fr-icon-theme-fill">Paramètres d&#x27;affichage</button></li></ul></div></div></div></div></div><div class="fr-header__menu fr-modal" id="header-menu-modal-fr-header" aria-labelledby="fr-header-menu-button"><div class="fr-container"><button id="fr-header-mobile-overlay-button-close" class="fr-btn--close fr-btn" aria-controls="header-menu-modal-fr-header" title="Fermer">Fermer</button><div class="fr-header__menu-links"><ul class="fr-btns-group"><li><button id="fr-header-quick-access-item-0-mobile" aria-controls="fr-theme-modal" data-fr-opened="false" class="fr-btn fr-icon-theme-fill">Paramètres d&#x27;affichage</button></li></ul></div><nav id="fr-header-main-navigation" class="fr-nav" role="navigation" aria-label="Menu principal"><ul class="fr-nav__list"><li class="fr-nav__item"><a id="fr-header-main-navigation-link-0" class="fr-nav__link" href="/template-nextjs">Accueil</a></li><li class="fr-nav__item"><a id="fr-header-main-navigation-link-1" class="fr-nav__link" href="/template-nextjs/dsfr">DSFR playground</a></li><li class="fr-nav__item"><a id="fr-header-main-navigation-link-2" class="fr-nav__link" href="/template-nextjs/mui">Mui playground</a></li><li class="fr-nav__item"><a id="fr-header-main-navigation-link-3" class="fr-nav__link" href="/template-nextjs/article">Article</a></li></ul></nav></div></div></header><div class="fr-container fr-container--fluid fr-p-5w" id="content">
+<div id="fr-alert-:Reb6:" class="fr-alert fr-alert--info" style="margin-bottom:20px" role="alert"><h3 class="fr-alert__title">Cette page doit être mise à jour</h3><div></div></div>
 <h1 class="fr-h1">Budget</h1>
 <p>[xxx] est un service public numérique, c’est pourquoi nous sommes transparents sur les ressources allouées et la manière dont elles sont employées.</p>
 <h2 class="fr-mt-3w fr-h2">Principes</h2>
@@ -145,14 +181,14 @@
 <li>L’équipe adopte une approche itérative et d’amélioration en continu</li>
 </ul>
 <h2 class="fr-mt-3w fr-h2">Financements</h2>
-<div id="fr-table-:R8p6:" class="fr-table"><table><thead><tr><th scope="col">Source</th><th scope="col">2021</th><th scope="col">2022</th><th scope="col">2023</th></tr></thead><tbody><tr><td>xxxx</td><td>x €</td><td>x €</td><td>x €</td></tr><tr><td>yyyy</td><td>x €</td><td>x €</td><td>x €</td></tr><tr><td>TOTAL</td><td>x €</td><td>x €</td><td>x €</td></tr></tbody></table></div>
+<div id="fr-table-:R26b6:" class="fr-table"><table><thead><tr><th scope="col">Source</th><th scope="col">2021</th><th scope="col">2022</th><th scope="col">2023</th></tr></thead><tbody><tr><td>xxxx</td><td>x €</td><td>x €</td><td>x €</td></tr><tr><td>yyyy</td><td>x €</td><td>x €</td><td>x €</td></tr><tr><td>TOTAL</td><td>x €</td><td>x €</td><td>x €</td></tr></tbody></table></div>
 <h2 class="fr-mt-3w fr-h2">Dépenses</h2>
-<div id="fr-table-:Rap6:" class="fr-table"><table><thead><tr><th scope="col">Poste</th><th scope="col">2021</th><th scope="col">2022</th><th scope="col">2023</th></tr></thead><tbody><tr><td>Développement</td><td>165 000 €</td><td>213 000 €</td><td>375 000 €</td></tr><tr><td>Déploiement</td><td>5 000 €</td><td>98 000 €</td><td>157 000 €</td></tr><tr><td>Design</td><td>25 000 €</td><td>25 000 €</td><td>43 000 €</td></tr><tr><td>Logiciels</td><td>-</td><td>12 000 €</td><td>12 000 €</td></tr><tr><td>Hébergement</td><td>1 000 €</td><td>3 000 €</td><td>3 000 €</td></tr><tr><td>TOTAL</td><td>XXX 000 €</td><td>XXX 000 €</td><td>XXX 000 €</td></tr></tbody></table></div>
+<div id="fr-table-:R2mb6:" class="fr-table"><table><thead><tr><th scope="col">Poste</th><th scope="col">2021</th><th scope="col">2022</th><th scope="col">2023</th></tr></thead><tbody><tr><td>Développement</td><td>165 000 €</td><td>213 000 €</td><td>375 000 €</td></tr><tr><td>Déploiement</td><td>5 000 €</td><td>98 000 €</td><td>157 000 €</td></tr><tr><td>Design</td><td>25 000 €</td><td>25 000 €</td><td>43 000 €</td></tr><tr><td>Logiciels</td><td>-</td><td>12 000 €</td><td>12 000 €</td></tr><tr><td>Hébergement</td><td>1 000 €</td><td>3 000 €</td><td>3 000 €</td></tr><tr><td>TOTAL</td><td>XXX 000 €</td><td>XXX 000 €</td><td>XXX 000 €</td></tr></tbody></table></div>
 <h2 class="fr-mt-3w fr-h2">Coût rapporté à l&#x27;impact</h2>
-<div id="fr-table-:Rcp6:" class="fr-table"><table><thead><tr><th scope="col">Impact</th><th scope="col">2021</th><th scope="col">2022</th><th scope="col">2023</th></tr></thead><tbody><tr><td>Coût d&#x27;un dossier</td><td>x €</td><td>x €</td><td>x €</td></tr><tr><td>Economies sur le papier</td><td>x €</td><td>x €</td><td>x €</td></tr></tbody></table></div>
-<div id="fr-callout-:Rdp6:" class="fr-callout"><p class="fr-callout__text"> <strong>À propos de la TVA</strong> : Contrairement aux entreprises du secteur privé, les administrations ne peuvent pas récupérer la TVA supportée sur leurs achats dans le cadre de leur activité. Le montant TTC inclut la TVA au taux de 20%. La TVA est collectée et reversée à l’État et diminue donc le montant du budget utilisable sur le projet.<!-- --> </p></div></div><footer id="fr-footer" class="fr-footer" role="contentinfo"><div class="fr-container"><div class="fr-footer__body"><div class="fr-footer__brand fr-enlarge-link"><a title="Accueil - Nom de l’entité (ministère, secrétariat d&#x27;état, gouvernement)" href="/template-nextjs"><p class="fr-logo">République<br/>Française</p></a></div><div class="fr-footer__content"><p class="fr-footer__content-desc">
+<div id="fr-table-:R36b6:" class="fr-table"><table><thead><tr><th scope="col">Impact</th><th scope="col">2021</th><th scope="col">2022</th><th scope="col">2023</th></tr></thead><tbody><tr><td>Coût d&#x27;un dossier</td><td>x €</td><td>x €</td><td>x €</td></tr><tr><td>Economies sur le papier</td><td>x €</td><td>x €</td><td>x €</td></tr></tbody></table></div>
+<div id="fr-callout-:R3eb6:" class="fr-callout"><p class="fr-callout__text"><strong>À propos de la TVA</strong> : Contrairement aux entreprises du secteur privé, les administrations ne peuvent pas récupérer la TVA supportée sur leurs achats dans le cadre de leur activité. Le montant TTC inclut la TVA au taux de 20%. La TVA est collectée et reversée à l’État et diminue donc le montant du budget utilisable sur le projet.</p></div></div><footer id="fr-footer" class="fr-footer" role="contentinfo"><div class="fr-container"><div class="fr-footer__body"><div class="fr-footer__brand fr-enlarge-link"><a title="Accueil - Nom de l’entité (ministère, secrétariat d&#x27;état, gouvernement)" href="/template-nextjs"><p class="fr-logo">République<br/>Française</p></a></div><div class="fr-footer__content"><p class="fr-footer__content-desc">
     Ce message est à remplacer par les informations de votre site.
 
     Comme exemple de contenu, vous pouvez indiquer les informations 
     suivantes : Le site officiel d’information administrative pour les entreprises.
-                </p><ul class="fr-footer__content-list"><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr" title="info.gouv.fr - ouvre une nouvelle fenêtre" id="footer-info-gouv-fr-link">info.gouv.fr</a></li><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://service-public.fr" title="service-public.fr - ouvre une nouvelle fenêtre" id="footer-service-public-fr-link">service-public.fr</a></li><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr" title="legifrance.gouv.fr - ouvre une nouvelle fenêtre" id="footer-legifrance-gouv-fr-link">legifrance.gouv.fr</a></li><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr" title="data.gouv.fr - ouvre une nouvelle fenêtre" id="footer-data-gouv-fr-link">data.gouv.fr</a></li></ul></div></div><div class="fr-footer__bottom"><ul class="fr-footer__bottom-list"><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/accessibilite">Accessibilité : non conforme</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/mentions-legales">Mentions légales</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/cgu">Conditions d&#x27;utilisation</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/stats">Statistiques</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/budget">Budget</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/politique-confidentialite">Politique de confidentialité</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/aide">Aide</a></li><li class="fr-footer__bottom-item"><a href="https://github.com/betagouv/template-nextjs/releases/tag/v1.15.8" target="_blank" rel="noreferrer" class="fr-footer__bottom-link">Contribuer sur GitHub</a></li><li class="fr-footer__bottom-item"><button id="fr-theme-modal-control-button" aria-controls="fr-theme-modal" data-fr-opened="false" class="fr-footer__bottom-link fr-icon-theme-fill fr-link--icon-left">Paramètres d&#x27;affichage</button></li></ul><div class="fr-footer__bottom-copy"><p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous licence Apache-2.0</p></div></div></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/budget","query":{},"buildId":"wFJGwxznnzEDaxBl6BjkA","assetPrefix":"/template-nextjs","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
+                </p><ul class="fr-footer__content-list"><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://info.gouv.fr" title="info.gouv.fr - nouvelle fenêtre" id="footer-info-gouv-fr-link">info.gouv.fr</a></li><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://service-public.gouv.fr" title="service-public.gouv.fr - nouvelle fenêtre" id="footer-service-public-gouv-fr-link">service-public.gouv.fr</a></li><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr" title="legifrance.gouv.fr - nouvelle fenêtre" id="footer-legifrance-gouv-fr-link">legifrance.gouv.fr</a></li><li class="fr-footer__content-item"><a class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr" title="data.gouv.fr - nouvelle fenêtre" id="footer-data-gouv-fr-link">data.gouv.fr</a></li></ul></div></div><div class="fr-footer__bottom"><ul class="fr-footer__bottom-list"><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/accessibilite">Accessibilité : non conforme</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/mentions-legales">Mentions légales</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/cgu">Conditions d&#x27;utilisation</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/stats">Statistiques</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/budget">Budget</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/politique-confidentialite">Politique de confidentialité</a></li><li class="fr-footer__bottom-item"><a class="fr-footer__bottom-link" href="/template-nextjs/aide">Aide</a></li><li class="fr-footer__bottom-item"><a href="https://github.com/betagouv/template-nextjs/releases/tag/v1.15.8" target="_blank" rel="noreferrer" class="fr-footer__bottom-link">Contribuer sur GitHub</a></li><li class="fr-footer__bottom-item"><button id="fr-theme-modal-control-button" aria-controls="fr-theme-modal" data-fr-opened="false" class="fr-footer__bottom-link fr-icon-theme-fill fr-link--icon-left">Paramètres d&#x27;affichage</button></li></ul><div class="fr-footer__bottom-copy"><p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous licence Apache-2.0</p></div></div></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/budget","query":{},"buildId":"RdT3IsdAp0RfJKdWIWEea","assetPrefix":"/template-nextjs","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
