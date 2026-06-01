@@ -7,6 +7,16 @@ Template minimal avec Next.js qui intègre les recommandations tech beta.gouv.fr
 
 👉 Démo: https://betagouv.github.io/template-nextjs
 
+## Stack
+
+| Outil | Version |
+| ----- | ------- |
+| Node.js | 24 |
+| Next.js | 15 |
+| React | 19 |
+| MUI | 6 |
+| TypeScript | 5.9 |
+
 ## ⚠️ IMPORTANT : Limites d'utilisation
 Bien que ce code soit distribué sous licence open source Apache-2.0, certains éléments contenus dans ce repository sont protégés et leur réutilisation est strictement interdite :
 
@@ -24,7 +34,7 @@ En cas d'usage non autorisé, vous vous exposez à des poursuites légales, nota
 
 ## Lancer le code
 
-Après avoir cloné le projet :
+Après avoir cloné le projet (Node.js 24 requis) :
 
 ### Développement
 

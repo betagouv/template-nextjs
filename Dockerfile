@@ -35,5 +35,3 @@ FROM ghcr.io/socialgouv/docker/nginx:sha-1d70757 AS runner
 
 COPY --from=builder /app/out /usr/share/nginx/html
 
-# Disable nextjs telemetry
-ENV NEXT_TELEMETRY_DISABLED 1
