@@ -35,13 +35,15 @@
     "@next/mdx": "^15.0.0",
     "@sentry/nextjs": "^8.0.0",
     "@socialgouv/matomo-next": "^1.11.0",
-    "@swc/core-linux-arm64-gnu": "^1.15.40",
     "dayjs": "^1.11.19",
     "next": "^15.0.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "remark-gfm": "^4.0.1",
     "tss-react": "^4.9.20"
+  },
+  "optionalDependencies": {
+    "@swc/core-linux-arm64-gnu": "^1.15.40"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.0.0",
