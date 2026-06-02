@@ -1,23 +1,17 @@
+"use client";
+
 import * as React from "react";
 import { fr } from "@codegouvfr/react-dsfr";
-
-import Head from "next/head";
-import { NextPage } from "next";
-
 import { Alert } from "@codegouvfr/react-dsfr/Alert";
 import { Button } from "@codegouvfr/react-dsfr/Button";
 import { Tabs } from "@codegouvfr/react-dsfr/Tabs";
 import { Card } from "@codegouvfr/react-dsfr/Card";
 import { Accordion } from "@codegouvfr/react-dsfr/Accordion";
-
 import Stack from "@mui/material/Stack";
 
-const Home: NextPage = () => {
+export function DsfrPage() {
   return (
     <>
-      <Head>
-        <title>Template | Fabrique numérique des ministères sociaux</title>
-      </Head>
       <Alert
         closable
         description="Everything went well"
@@ -76,6 +70,4 @@ const Home: NextPage = () => {
       </Stack>
     </>
   );
-};
-
-export default Home;
+}

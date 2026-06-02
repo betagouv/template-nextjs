@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Page from "../src/pages/index";
+import Page from "../src/app/page";
 import React from "react";
 
 test("Has index page", () => {

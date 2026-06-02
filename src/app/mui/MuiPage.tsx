@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import { ThemeProvider, createTheme, styled } from "@mui/material/styles";
@@ -71,7 +73,7 @@ const muiDefaultLightTheme = createTheme({
   },
 });
 
-export default function Mui() {
+export function MuiPage() {
   const { isDark, setIsDark } = useIsDark();
 
   const [isProviderEnabled, setIsProviderEnabled] = React.useState(true);
