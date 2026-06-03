@@ -23,7 +23,7 @@ const MiseryWrapper = (props: any) => {
   return props.children;
 };
 
-declare global {
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
       "scatter-chart": ScatterChartAttributes;

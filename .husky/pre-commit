@@ -1,6 +1,6 @@
 #!/bin/sh
 if sh -c ': >/dev/tty' >/dev/null 2>/dev/null; then
-    exec </dev/tty; yarn node-talisman --githook pre-commit -i;
+    exec </dev/tty; npx node-talisman --githook pre-commit -i;
 else
-    yarn node-talisman --githook pre-commit;
+    npx node-talisman --githook pre-commit;
 fi

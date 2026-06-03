@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
 import { ThemeProvider, createTheme, styled } from "@mui/material/styles";
@@ -41,7 +43,7 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 import Link from "@mui/material/Link";
 
@@ -71,7 +73,7 @@ const muiDefaultLightTheme = createTheme({
   },
 });
 
-export default function Mui() {
+export function MuiPage() {
   const { isDark, setIsDark } = useIsDark();
 
   const [isProviderEnabled, setIsProviderEnabled] = React.useState(true);
@@ -393,29 +395,25 @@ function MaterialUIPickers() {
       <Stack spacing={3} sx={{ mt: 7 }}>
         <DesktopDatePicker
           label="Date desktop"
-          inputFormat="MM/DD/YYYY"
+          format="MM/DD/YYYY"
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
         />
         <MobileDatePicker
           label="Date mobile"
-          inputFormat="MM/DD/YYYY"
+          format="MM/DD/YYYY"
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
         />
         <TimePicker
           label="Time"
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
         />
         <DateTimePicker
           label="Date&Time picker"
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
         />
       </Stack>
     </LocalizationProvider>
@@ -628,8 +626,8 @@ const { DataGridDemo } = (() => {
       description: "This column has a value getter and is not sortable.",
       sortable: false,
       width: 160,
-      valueGetter: (params: GridValueGetterParams) =>
-        `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+      valueGetter: (_value: unknown, row: { firstName: string | null; lastName: string | null }) =>
+        `${row.firstName || ""} ${row.lastName || ""}`,
     },
   ];
 

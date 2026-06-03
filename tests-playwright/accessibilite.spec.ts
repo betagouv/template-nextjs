@@ -5,19 +5,19 @@ const url = "/accessibilite";
 test("has title", async ({ page }) => {
   await page.goto(url);
 
-  await expect(page).toHaveTitle(/Déclaration d’accessibilité | template/);
+  await expect(page).toHaveTitle(/Déclaration d'accessibilité | template/);
 });
 
 test("has proper headers", async ({ page }) => {
   await page.goto(url);
 
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Déclaration d’accessibilité"
+    "Déclaration d'accessibilité"
   );
 
   const requiredHeaders = [
     "État de conformité",
-    "Établissement de cette déclaration d’accessibilité",
+    "Établissement de cette déclaration d'accessibilité",
     "Amélioration et contact",
   ];
 

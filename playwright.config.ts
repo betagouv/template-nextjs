@@ -28,6 +28,9 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
+
+    /* Bypass CSP so Next.js inline RSC scripts are not blocked during tests */
+    bypassCSP: true,
   },
 
   /* Configure projects for major browsers */

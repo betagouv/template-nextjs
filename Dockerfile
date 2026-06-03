@@ -1,4 +1,4 @@
-ARG NODE_VERSION=20-alpine3.19@sha256:ef3f47741e161900ddd07addcaca7e76534a9205e4cd73b2ed091ba339004a75
+ARG NODE_VERSION=24-alpine@sha256:2bdb65ed1dab192432bc31c95f94155ca5ad7fc1392fb7eb7526ab682fa5bf14
 
 # Install dependencies only when needed
 FROM node:$NODE_VERSION AS builder
@@ -35,5 +35,3 @@ FROM ghcr.io/socialgouv/docker/nginx:sha-1d70757 AS runner
 
 COPY --from=builder /app/out /usr/share/nginx/html
 
-# Disable nextjs telemetry
-ENV NEXT_TELEMETRY_DISABLED 1

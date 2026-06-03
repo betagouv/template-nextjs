@@ -5,7 +5,7 @@ export type MentionPartProps = {
   divProps?: React.HTMLAttributes<HTMLDivElement>;
 };
 
-export const MentionPart = (props: MentionPartProps): JSX.Element => {
+export const MentionPart = (props: MentionPartProps) => {
   return (
     <div className="fr-mt-3w" {...props.divProps}>
       <h2>{props.title}</h2>
